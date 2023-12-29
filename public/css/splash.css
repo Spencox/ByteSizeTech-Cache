@@ -1,0 +1,23 @@
+body, html {
+    font-family: 'Nanum Gothic Coding', monospace;
+    background-color: black;
+    color: whitesmoke;
+    height: 100%;
+}
+
+.splash-container {
+    height: 100vh; /* Use vh as a relative measurement to the viewport height */
+    background: url('/images/tech-background.jpg') no-repeat center center; /* Change with your desired background */
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* Adjust color to make the text stand out */
+}
+
+.logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
