@@ -45,17 +45,17 @@ router.get('/', (req, res) => {
 //   });
 // });
 
-// // view login page
-// router.get('/login', (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('login', {
-//     title: 'User Login',
-//     style: 'login.css'
-//   });
-// });
+// view login page
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login', {
+    title: 'User Login',
+    style: 'login.css'
+  });
+});
 
 // // view sign up page
 // router.get('/signup', (req, res) => {
