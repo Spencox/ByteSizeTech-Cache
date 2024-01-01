@@ -1,25 +1,22 @@
-const Posts = require('./Posts');
-// const FollowedRepos = require('./FollowedRepos');
-// const Repos = require('./Repos');
 const Users = require('./Users');
+const Posts = require('./Posts');
+const Comments = require('./Comments')
 
 // Each post has one user author
 Posts.belongsTo(Users, {
   foreignKey: 'user_id'
 });
 
-// // 
-// Repos.hasMany(Bugs, {
-//   foreignKey: 'repo_id'
-// });
+// Each post can have many comments
+Posts.hasMany(Comments, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE'
+});
 
-// // FollowedRepos belongs to Users
-// Repos.belongsToMany(Users, {
-//   through: FollowedRepos
-// });
+// Each user can have many comments
+Users.hasMany(Comments, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
 
-// Users.belongsToMany(Repos, {
-//   through: FollowedRepos
-// });
-
-module.exports = { Users, Posts };
+module.exports = { Users, Posts, Comments };
