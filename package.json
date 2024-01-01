@@ -1,7 +1,7 @@
 {
-    "name": "bug-bounty-brokers",
+    "name": "ByteSizedTech-Cache",
     "version": "1.0.0",
-    "description": "Bounty Board for Bugs populated by Issues from GitHub",
+    "description": "Tech Blog",
     "main": "server.js",
     "scripts": {
       "start": "node server.js",
