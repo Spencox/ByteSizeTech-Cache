@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Posts, Users } = require('../models');
+const { Posts, Users, Comments } = require('../models');
 
 const withAuth = require('../utils/auth');
 
@@ -50,14 +50,39 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// // github repo search page
-// router.get('/bugs', withAuth, (req, res) => {
-//   res.render('bugs', {
-//     title: 'Search for Bugs',
-//     style: 'dashboard.css',
-//     logged_in: req.session.logged_in
-//   });
-// });
+// route to comments page
+router.get('/:id', async (req, res) => {
+  try{ 
+    const postCommentData = await Posts.findByPk(req.params.id, {
+      include: [{
+        model: Users,
+        attributes: ['username']
+      },
+      {
+        model: Comments,
+      }
+    ]
+    });
+    
+    if(!postCommentData) {
+        res.status(404).json({message: 'No post with this id!'});
+        return;
+    }
+    const postWithComment = postCommentData.get({ plain: true });
+
+    console.log(postWithComment);
+
+    res.render('comments', {
+      postWithComment,
+      title: 'Comment on Post',
+      style: 'comment.css',
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+      res.status(500).json(err);
+  };     
+});
+
 
 // view login page
 router.get('/login', (req, res) => {
