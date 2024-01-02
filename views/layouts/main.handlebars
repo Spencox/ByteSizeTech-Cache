@@ -14,24 +14,9 @@
         <link rel="stylesheet" href="css/{{style}}" />
     </head>
     <body>
-        <main>
-           <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid d-flex justify-1content-between align-items-center">
-                    <div class="navbar-brand">
-                        <a href="/">
-                            <img src="images/Icon.png" alt="Logo" style="height: 75px;" class="mr-2">
-                        </a>
-                    </div>
-                    {{#if logged_in}}
-                    <a id="homepage" class="btn-link text-white font-weight-bold" href="/">Homepage</a>
-                    <a id="dashboard" class="btn-link text-white font-weight-bold" href="/dashboard">Dashboard</a>
-                    <a id="logout" class="btn btn-primary" href="/logout">Logout</a>
-                    {{/if}}
-                </div>
-            </nav>
-            <!-- handlebars templates -->
-            {{{body}}}
-        </main>
+        <!-- handlebars templates -->
+        {{{body}}}
+        
         <!-- bootstrap js -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

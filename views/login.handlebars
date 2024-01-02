@@ -1,38 +1,52 @@
-<!-- eyball icon import -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<div class="container mt-5">
-    <h2>Login</h2>
-    <form class="form login-form">
-        <div class="mb-3">
-            <label for="email-login" class="form-label">Email:</label>
-            <input class="form-control" type="text" id="email-login">
-        </div>
-        <div class="mb-3">
-            <label for="password-login" class="form-label">Password:</label>
-            <div class="input-group">
-                <input class="form-control" type="password" id="password-login">
-                <div class="input-group-append">
-                    <span class="input-group-text password-toggle" onclick="togglePassword('password-login')">
-                        <i class="far fa-eye"></i>
-                    </span>
+<header>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="navbar-brand d-flex align-items-center">
+        <a href="/" class="d-flex align-items-center">
+            <img src="images/title.png" alt="Logo" style="height: 75px;" class="mr-2"> 
+            <span id="homepage" class="text-white font-weight-bold">Homepage</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+    <!-- eyball icon import -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <div class="container mt-5">
+        <h2>Login</h2>
+        <form class="form login-form">
+            <div class="mb-3">
+                <label for="username-login" class="form-label">Username:</label>
+                <input class="form-control" type="text" id="username-login">
+            </div>
+            <div class="mb-3">
+                <label for="password-login" class="form-label">Password:</label>
+                <div class="input-group">
+                    <input class="form-control" type="password" id="password-login">
+                    <div class="input-group-append">
+                        <span class="input-group-text password-toggle" onclick="togglePassword('password-login')">
+                            <i class="far fa-eye"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Login</button>
-        </div>
-    </form>
-    <p>Don't have an account? Click <a href="/signup">here</a> to register.</p>
-    <!-- login js -->
-    <script src="js/login.js"></script>
-    <script>
-        function togglePassword(inputId) {
-            const passwordInput = document.getElementById(inputId);
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+        <p>Don't have an account? Click <a href="/signup">here</a> to sign up.</p>
+        <!-- login js -->
+        <script src="js/login.js"></script>
+        <script>
+            function togglePassword(inputId) {
+                const passwordInput = document.getElementById(inputId);
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
             }
-        }
-    </script>
-</div>
+        </script>
+    </div>
+</main>

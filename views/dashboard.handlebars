@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid d-flex justify-1content-between align-items-center">
+          <div class="navbar-brand">
+              <a href="/">
+                  <img src="images/title.png" alt="Logo" style="height: 75px;" class="mr-2">
+              </a>
+          </div>
+          {{#if logged_in}}
+              <a id="homepage" class="btn-link text-white font-weight-bold" href="/">Homepage</a>
+              <a id="dashboard" class="btn-link text-white font-weight-bold" href="/dashboard">Dashboard</a>
+              <a id="logout" class="btn btn-primary">Logout</a>
+          {{else}}
+                <a id="login" class="btn-link text-white font-weight-bold" href="/login">Login</a>
+          {{/if}}
+      </div>
+  </nav>
+</header>
+<main>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="card-container">
+          <h2 class="text-white">{{title}} - Posts</h2>
+          {{#each userPosts as |userPost|}}
+            <div class="card mb-3">
+              <header class="card-header"> 
+                <h3>{{userPost.title}}</h3>
+              </header>
+              <div class="card-body"> 
+                <p>{{userPost.body}}</p>
+              </div>
+              <footer class="card-footer text-muted d-flex justify-content-between"> 
+                <span>Author: {{userPost.user.username}}</span>
+                <span>Created: {{format_date userPost.created_at}}</span>
+              </footer> 
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
