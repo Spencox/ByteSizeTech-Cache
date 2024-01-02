@@ -57,20 +57,27 @@ router.get('/:id', async (req, res) => {
       include: [{
         model: Users,
         attributes: ['username']
-      },
-      {
-        model: Comments,
-      }
-    ]
+      }]
     });
     
     if(!postCommentData) {
-        res.status(404).json({message: 'No post with this id!'});
-        return;
+      res.status(404).json({message: 'No post with this id!'});
+      return;
     }
+    
     const postWithComment = postCommentData.get({ plain: true });
+    
+    const commentData = await Comments.findAll({
+      where: {post_id: req.params.id},
+      include: [{
+        model: Users,
+        attributes: ['username']
+      }]
+    });
 
-    console.log(postWithComment);
+    const userComment = commentData.map((comment) => comment.get({ plain: true}));
+    
+    console.log(userComment);
 
     res.render('comments', {
       postWithComment,
