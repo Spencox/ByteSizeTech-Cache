@@ -31,3 +31,10 @@ body, html {
   .card-link:hover {
     color: black; 
   }
+
+  #logout {
+    color: white;
+  }
+  #logout:hover {
+    color: red;
+  }

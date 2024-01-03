@@ -62,8 +62,10 @@
 
               
               <!-- Comment Form -->
-              <form>
+              <form class="comment-form">
                 <div class="form-group mt-3">
+                  <input id="post" type="hidden"value="{{postWithComment.id}}" />
+                  <input id="user" type="hidden"value="{{user_id}}" />
                   <label for="comment">Add a Comment</label>
                   <textarea class="form-control" id="comment" rows="4" placeholder="Write your comment here"></textarea>
                 </div>
@@ -77,6 +79,9 @@
       </div>
     </div>
   </div>
+    {{#if logged_in}}
+        <script src="/js/postComment.js"></script>
+    {{/if}}
 </main>
 
 

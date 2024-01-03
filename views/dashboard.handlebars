@@ -19,6 +19,7 @@
 <main>
   <div class="container mt-4">
     <div class="row justify-content-center">
+      {{#if userPosts}}
       <div class="col-md-9">
         <div class="card-container">
           <h2 class="text-white mb-3">{{title}} - Posts</h2>
@@ -31,9 +32,13 @@
             </div>
           {{/each}}
         </div>
-          <button class="btn btn-success mt-3" id="create-post-button">Create New Post</button>
-        </div>
+      </div>
+      {{/if}}
+      <div class="col-md-9 text-center"> <!-- Center the button container -->
+        <button class="btn btn-success mt-3" id="create-post-button">Create New Post</button>
+      </div>
     </div>
   </div>
 </main>
+
 

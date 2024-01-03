@@ -59,15 +59,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
         attributes: ['username']
       }]
     })
-  
+    
+    console.log(userPostData);
+
     const userPosts = userPostData.map((post) => post.get({ plain: true}))
+
+    console.log(userPosts);
 
     res.render('dashboard', {
       userPosts,
       logged_in: req.session.logged_in,
-      title: `${userPosts[0].user.username}'s Dashboard`,
+      //title: `${userPosts[0].user.username}'s Dashboard`,
       style: 'dashboard.css'
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
