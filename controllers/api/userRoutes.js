@@ -1,22 +1,24 @@
 const router = require('express').Router();
-const { Users } = require('../../models');
+const { Posts, Users, Comments } = require('../../models');
 
 
-// // crate new user
-// router.post('/', async (req, res) => {
-//   try {
-//     const userData = await Users.create(req.body);
+// create new user
+router.post('/signup', async (req, res) => {
+  try {
+    const userData = await Users.create(req.body);
 
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
+    console.log(userData);
 
-//       res.status(200).json(userData);
-//     });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 // login to check db if user and password match
 router.post('/login', async (req, res) => {

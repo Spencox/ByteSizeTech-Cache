@@ -7,7 +7,7 @@
               </a>
           </div>
           {{#if logged_in}}
-              <a id="homepage" class="btn-link text-white font-weight-bold" href="/">Homepage</a>
+              <a id="homepage" class="btn-link text-white font-weight-bold" href="/homepage">Homepage</a>
               <a id="dashboard" class="btn-link text-white font-weight-bold" href="/dashboard">Dashboard</a>
               <a id="logout" class="btn btn-primary">Logout</a>
           {{else}}
@@ -19,25 +19,26 @@
 <main>
   <div class="container mt-4">
     <div class="row justify-content-center">
+      {{#if userPosts}}
       <div class="col-md-9">
         <div class="card-container">
-          <h2 class="text-white">{{title}} - Posts</h2>
+          <h2 class="text-white mb-3">{{title}} - Posts</h2>
           {{#each userPosts as |userPost|}}
             <div class="card mb-3">
-              <header class="card-header"> 
-                <h3>{{userPost.title}}</h3>
+              <header class="card-header d-flex justify-content-between"> 
+                <span>{{userPost.title}}</span>
+                <span>{{format_date userPost.created_at}}</span>
               </header>
-              <div class="card-body"> 
-                <p>{{userPost.body}}</p>
-              </div>
-              <footer class="card-footer text-muted d-flex justify-content-between"> 
-                <span>Author: {{userPost.user.username}}</span>
-                <span>Created: {{format_date userPost.created_at}}</span>
-              </footer> 
             </div>
           {{/each}}
         </div>
       </div>
+      {{/if}}
+      <div class="col-md-9 text-center"> <!-- Center the button container -->
+        <button class="btn btn-success mt-3" id="create-post-button">Create New Post</button>
+      </div>
     </div>
   </div>
 </main>
+
+

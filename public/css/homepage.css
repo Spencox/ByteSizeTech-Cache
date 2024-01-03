@@ -21,3 +21,20 @@ body, html {
     width: 150px; /* Adjust size as needed */
     height: auto;
 }
+
+.card-link {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+  }
+  
+  .card-link:hover {
+    color: black; 
+  }
+
+  #logout {
+    color: white;
+  }
+  #logout:hover {
+    color: red;
+  }
