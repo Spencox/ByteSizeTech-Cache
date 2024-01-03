@@ -35,6 +35,8 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 ## Credits
 CITE: https://sequelize.org/docs/v6/getting-started/
 CITE: UT GROUP PROJECT 2 
+CITE : https://getbootstrap.com/docs/5.3/getting-started/introduction/
+CITE: https://handlebarsjs.com/guide/builtin-helpers.html#built-in-helpers
 
 ## License
 This app is licensed under the WTFPL license. Information on the license can be found online at http://www.wtfpl.net/about/ or by clicking the badge above.
