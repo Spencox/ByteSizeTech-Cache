@@ -1,13 +1,22 @@
+<style>
+    body, html {
+    font-family: 'Nanum Gothic Coding', monospace;
+    background-color: black;
+    color: black;
+    height: 100%;
+  }
+</style>
+
 <header>
   <nav class="navbar bg-body-tertiary">
       <div class="container-fluid d-flex justify-1content-between align-items-center">
           <div class="navbar-brand">
               <a href="/">
-                  <img src="images/title.png" alt="Logo" style="height: 75px;" class="mr-2">
+                  <img src="/images/title.png" alt="Logo" style="height: 75px;" class="mr-2">
               </a>
           </div>
           {{#if logged_in}}
-              <a id="homepage" class="btn-link text-white font-weight-bold" href="/">Homepage</a>
+              <a id="homepage" class="btn-link text-white font-weight-bold" href="/homepage">Homepage</a>
               <a id="dashboard" class="btn-link text-white font-weight-bold" href="/dashboard">Dashboard</a>
               <a id="logout" class="btn btn-primary">Logout</a>
           {{else}}
@@ -22,20 +31,53 @@
       <div class="col-md-9">
         <div class="card-container">
           <h2 class="text-white">{{title}} - Posts</h2>
-            <div class="card mb-3">
-              <header class="card-header"> 
-                <h3>{{postWithComment.title}}</h3>
-              </header>
-              <div class="card-body"> 
-                <p>{{postWithComment.body}}</p>
-              </div>
-              <footer class="card-footer text-muted d-flex justify-content-between"> 
-                <span>Author: {{postWithComment.user.username}}</span>
-                <span>Created: {{format_date postWithComment.created_at}}</span>
-              </footer> 
+          <div class="card mb-3">
+            <header class="card-header">
+              <h3>{{postWithComment.title}}</h3>
+            </header>
+            <div class="card-body">
+              <p>{{postWithComment.body}}</p>
             </div>
+            <footer class="card-footer text-muted d-flex justify-content-between">
+              <span>Author: {{postWithComment.user.username}}</span>
+              <span>Created: {{format_date postWithComment.created_at}}</span>
+            </footer>
+          </div>
+          
+          <!-- Comments Section -->
+          <div class="card mb-3">
+            <header class="card-header">
+              <h4>Comments</h4>
+            </header>
+            <div class="card-body">
+              <!-- List of Current Comments -->
+              <ul class="list-group">
+                {{#each userComment as |comment|}}
+                  <li class="list-group-item">
+                    <div class="comment-text">{{comment.comment}}</div>
+                    <span class="comment-username font-weight-bold">{{comment.user.username}}</span> - <span class="font-weight-bold">{{format_date comment.created_at}}</span>
+                  </li>
+                {{/each}}
+            </ul>
+
+              
+              <!-- Comment Form -->
+              <form>
+                <div class="form-group mt-3">
+                  <label for="comment">Add a Comment</label>
+                  <textarea class="form-control" id="comment" rows="4" placeholder="Write your comment here"></textarea>
+                </div>
+                <div class="form-group text-right">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </main>
+
+
+

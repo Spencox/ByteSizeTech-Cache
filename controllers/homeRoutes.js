@@ -3,8 +3,31 @@ const { Posts, Users, Comments } = require('../models');
 
 const withAuth = require('../utils/auth');
 
-// view homepage
+// view homepage without login
 router.get('/', async (req, res) => {
+  try{
+    const postData = await Posts.findAll({
+      include: [{
+        model: Users,
+        attributes: ['username']
+      }]
+    })
+    
+    const posts = postData.map((post) => post.get({ plain: true}))
+
+    res.render('landing', {
+      posts,
+      logged_in: req.session.logged_in,
+      title: 'Welcome to BSTC',
+      style: 'homepage.css'
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// view homepage without login
+router.get('/homepage', withAuth, async (req, res) => {
   try{
     const postData = await Posts.findAll({
       include: [{
@@ -50,51 +73,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// route to comments page
-router.get('/:id', async (req, res) => {
-  try{ 
-    const postCommentData = await Posts.findByPk(req.params.id, {
-      include: [{
-        model: Users,
-        attributes: ['username']
-      }]
-    });
-    
-    if(!postCommentData) {
-      res.status(404).json({message: 'No post with this id!'});
-      return;
-    }
-    
-    const postWithComment = postCommentData.get({ plain: true });
-    
-    const commentData = await Comments.findAll({
-      where: {post_id: req.params.id},
-      include: [{
-        model: Users,
-        attributes: ['username']
-      }]
-    });
-
-    const userComment = commentData.map((comment) => comment.get({ plain: true}));
-    
-    console.log(userComment);
-
-    res.render('comments', {
-      postWithComment,
-      title: 'Comment on Post',
-      style: 'comment.css',
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-      res.status(500).json(err);
-  };     
-});
-
 
 // view login page
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('dashboard');
     return;
   }
   res.render('login', {

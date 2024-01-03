@@ -23,7 +23,6 @@
         <div class="card-container">
           <h2 class="text-white">Current Cache</h2>
           {{#each posts as |post|}}
-            <a class="card-link" href="/api/comments/{{post.id}}">
                 <div class="card mb-3">
                   <header class="card-header"> 
                     <h3>{{post.title}}</h3>
@@ -36,7 +35,6 @@
                   <span>Created: {{format_date post.created_at}}</span>
                 </footer> 
               </div>
-            </a>
           {{/each}}
         </div>
       </div>
