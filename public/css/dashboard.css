@@ -4,3 +4,13 @@ body, html {
     color: black;
     height: 100%;
 }
+
+.card {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+  }
+  
+  .card:hover {
+    color: black; 
+  }
