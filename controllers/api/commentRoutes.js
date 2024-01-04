@@ -13,7 +13,6 @@ router.get('/:id', withAuth, async (req, res) => {
       }]
     });
     
-
     if(!postCommentData) {
       res.status(404).json({message: 'No post with this id!'});
       return;
@@ -31,7 +30,6 @@ router.get('/:id', withAuth, async (req, res) => {
 
     const userComment = commentData.map((comment) => comment.get({ plain: true}));
     
-
     res.render('comments', {
       postWithComment,
       userComment,
@@ -54,6 +52,5 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
   module.exports = router;

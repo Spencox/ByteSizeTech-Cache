@@ -72,12 +72,12 @@ router.put('/:id', async (req, res) => {
     }
   });
 
-  // update a post
+// delete a post
 router.delete('/:id', async (req, res) => {
     console.log("MADE TO DELETE")
     console.log(req.body);
     try {
-    // find post to update
+    // find post to delete
     const postData = await Posts.findByPk(req.params.id, {
     });
     
