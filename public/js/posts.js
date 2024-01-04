@@ -112,11 +112,14 @@ const editPost = async (event) => {
 if(newPostEl){
     newPostEl.addEventListener('submit', createNewPost)
 }
-
 if(createPostBtnEl){
     createPostBtnEl.addEventListener('click', newPost)
 }
-
 // event listeners for editing existing post
-updatePostBtnEl.addEventListener('click', editPost);
-deletePostBtnEl.addEventListener('click', deletePost);
+if(updatePostBtnEl){
+  updatePostBtnEl.addEventListener('click', editPost);
+}
+if(deletePostBtnEl){
+  deletePostBtnEl.addEventListener('click', deletePost);
+}
+
