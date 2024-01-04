@@ -32,7 +32,7 @@ DB Schema:
 
 ## Usage
 
-The cite is publicly hosted on heroku at: [<Link>](https://polar-bayou-19405-500562218ea7.herokuapp.com/)
+The cite is publicly hosted on heroku at: https://polar-bayou-19405-500562218ea7.herokuapp.com
 
 Usage is very simple and straight forward. Upon navigating to the site you will see a splash page that contains all blog posts from all users.
 
