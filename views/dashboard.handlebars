@@ -1,0 +1,82 @@
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+<header>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="navbar-brand">
+        <a href="/">
+          <img src="images/title.png" alt="Logo" style="height: 75px;" class="mr-2">
+        </a>
+      </div>
+      {{#if logged_in}}
+      <a id="homepage" class="btn-link text-white font-weight-bold" href="/homepage">Homepage</a>
+      <a id="dashboard" class="btn-link text-white font-weight-bold" href="/dashboard">Dashboard</a>
+      <a id="logout" class="btn-link text-white font-weight-bold" style="cursor: pointer;">Logout</a>
+      {{else}}
+      <a id="login" class="btn-link text-white font-weight-bold" href="/login">Login</a>
+      {{/if}}
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container mt-4">
+  <div class="row justify-content-center">
+    {{#if userPosts}}
+    <div class="col-md-9">
+      <div id="current-posts" class="card-container"> <!-- element to hide -->
+        <h2 class="text-white mb-3">{{user_name}}'s - Posts</h2>
+        {{#each userPosts as |userPost|}}
+        <a href="/api/posts/{{userPost.id}}" class="card mb-3">
+          <header class="card-header d-flex justify-content-between">
+            <span>{{userPost.title}}</span>
+            <span>{{format_date userPost.created_at}}</span>
+          </header>
+        </a>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<!-- New Post Form -->
+<div id="new-post" class="row justify-content-center hidden">
+  <div class="col-md-9">
+    <div class="card mb-3">
+      <header class="card-header">
+        <h3>New Post</h3>
+      </header>
+      <div class="card-body">
+        <form class="new-post-form" id="new-post-form" method="POST">
+          <input id="user" type="hidden" value="{{user_id}}" />
+          <div class="form-group">
+            <label for="new-post-title">Title</label>
+            <input type="text" class="form-control" id="new-post-title" name="new_post_title" placeholder="Enter the new post title">
+          </div>
+          <div class="form-group">
+            <label for="new-post-content">Content</label>
+            <textarea class="form-control" id="new-post-content" name="new_post_content" rows="4" placeholder="Write your new post content here"></textarea>
+          </div>
+            <button id="new-post-submit-btn" class="btn btn-primary btn-block" type="submit">Create Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Create New Post Button -->
+    <div class="row justify-content-center">
+      <div class="col-md-9 text-center">
+        <button class="btn btn-success mt-3" id="create-post-button">Create New Post</button>
+      </div>
+    </div>
+  </div>
+
+  {{#if logged_in}}
+  <script src="/js/posts.js"></script>
+  {{/if}}
+</main>

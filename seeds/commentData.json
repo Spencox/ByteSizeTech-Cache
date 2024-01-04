@@ -1,0 +1,52 @@
+[
+    {
+        "comment": "Really intrigued by how AI is shaping the future of healthcare. Any particular diseases where AI's impact has been revolutionary?",
+        "post_id": 1,
+        "user_id": 2
+    },
+    {
+        "comment": "I agree that AI is a game-changer in healthcare, but aren't there ethical implications with data privacy to consider?",
+        "post_id": 1,
+        "user_id": 1
+    },
+    {
+        "comment": "The pace of machine learning development is astounding. I'm curious about the barriers to entry for smaller businesses in adopting these technologies.",
+        "post_id": 2,
+        "user_id": 3
+    },
+    {
+        "comment": "As someone working in the automotive industry, I can see daily how machine learning is transforming how we perceive mobility. Exciting times!",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "comment": "It's great to see ML pushing boundaries, but are there enough skilled professionals to keep up with these advancements?",
+        "post_id": 2,
+        "user_id": 2
+    },
+    {
+        "comment": "Cybersecurity is a massive concern for my business. Would love more detailed strategies on protecting against specific types of attacks!",
+        "post_id": 3,
+        "user_id": 3
+    },
+    {
+        "comment": "The rise in remote work definitely makes cybersecurity more challenging. Are there any new technologies on the horizon to help mitigate these risks?",
+        "post_id": 3,
+        "user_id": 1
+    },
+    {
+        "comment": "Cybersecurity is not just a tech problem, but also a human one. Training and awareness are key.",
+        "post_id": 3,
+        "user_id": 2
+    },
+    {
+        "comment": "The potential for AI in diagnosing early-stage diseases is fascinating. Looking forward to more breakthroughs in this area!",
+        "post_id": 1,
+        "user_id": 3
+    },
+    {
+        "comment": "With all this progress in AI and machine learning, I wonder what the job landscape will look like in the next decade.",
+        "post_id": 2,
+        "user_id": 1
+    }
+]
