@@ -1,3 +1,4 @@
+// handle new comment 
 const postCommentFormHandler = async (event) => {
     event.preventDefault();
   
