@@ -36,7 +36,7 @@
       </header>
       <div class="card-body">
         <form class="update-post-form" id="update-post-form" method="POST">
-          <input id="user" type="hidden" value="{{user_id}}" />
+          <input id="post" type="hidden" value="{{post.id}}" />
           <div class="form-group">
             <label for="update-post-title">Title</label>
             <input type="text" class="form-control" id="update-post-title" name="new_post_title" value="{{post.title}}">
