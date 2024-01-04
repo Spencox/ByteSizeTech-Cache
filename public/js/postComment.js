@@ -1,7 +1,6 @@
 const postCommentFormHandler = async (event) => {
     event.preventDefault();
   
-    console.log("BUTTON PUSHED FOR COMMENT")
     const comment = document.querySelector('#comment').value.trim();
     
     const post_id = document.querySelector('#post').value;
@@ -11,7 +10,6 @@ const postCommentFormHandler = async (event) => {
     console.log(comment, post_id, user_id)
 
     if (comment && post_id && user_id) {
-    console.log("MADE TO IF")  
     const response = await fetch('/api/comments/', {
         method: 'POST',
         body: JSON.stringify({ comment, post_id, user_id }),

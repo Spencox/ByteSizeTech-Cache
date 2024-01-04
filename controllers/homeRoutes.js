@@ -60,14 +60,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }]
     })
     
-    console.log(userPostData);
-
     const userPosts = userPostData.map((post) => post.get({ plain: true}))
-
-    console.log(userPosts);
 
     res.render('dashboard', {
       userPosts,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in,
       //title: `${userPosts[0].user.username}'s Dashboard`,
       style: 'dashboard.css'

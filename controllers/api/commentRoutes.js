@@ -47,11 +47,8 @@ router.get('/:id', withAuth, async (req, res) => {
 
 // post new comment
 router.post('/', async (req, res) => {
-  console.log("MADE TO POST")
-  console.log(req.body);
   try {
     const commentData = await Comments.create(req.body);
-    console.log(commentData);
     res.status(200).json(commentData);
   } catch (err) {
     res.status(400).json(err);
